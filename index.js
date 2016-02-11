@@ -1,22 +1,18 @@
-var express  = require('express'),
-    winston  = require('winston'),
-    chalk    = require('chalk'),
-    fs       = require('fs-extra'),
-    exec     = require('child_process').exec;
-    logLevel = process.env.environment === 'development' || process.env.environment === 'dev' ? 'debug' : 'info';
-    app      = express();
+var    winston   = require('winston'),
+    Scheduler = require('./lib/scheduler'),
+    task      = require('./tasks/task'),
+    options   = require('./config/options.json'),
+    logLevel  = process.env.environment === 'development' || process.env.environment === 'dev' ? 'debug' : 'info';
 winston.level = logLevel;
 
-var port = process.env.port || 3000;
-
-process.title = 'Deploy It - Node.js';
-
-const child = exec('mongodump -d slate -o /Users/JScottChapman/projects/shore',
-  (error, stdout, stderr) => {
-    console.log('stdout: ${stdout}');
-    console.log('stderr: ${stderr}');
-    if (error !== null) {
-      console.log('exec error: ${error}');
-    }
-  }
-)
+var runningTasks = [];
+process.title = 'Shore';
+options.backups.forEach(definition => {
+  runningTasks.push(new Scheduler({
+    name: task.name + ' ' + definition.name,
+    startHook: task.startHook.bind(definition),
+    autoInit: true,
+    runOnInit: true,
+    pattern: definition.pattern
+  }));
+});

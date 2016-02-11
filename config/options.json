@@ -1,11 +1,12 @@
 {
-	"backup" : {
-		"daily": {
-			"name": "Slate-API Daily Backup",
-			"directory": "/Users/JScottChapman/Projects/slate-api"
-
+	"backups" : [
+		{
+			"name": "Slate Daily Backup",
+			"db": "slate",
+			"directory": "/Users/JScottChapman/Projects/backup",
+			"pattern": "* * * * *"
 		}
-	},
+	],
 	"aws": {
 		"access_key_id": "",
 		"secret_access_key": "",
