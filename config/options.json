@@ -1,0 +1,14 @@
+{
+	"backup" : {
+		"daily": {
+			"name": "Slate-API Daily Backup",
+			"directory": "/Users/JScottChapman/Projects/slate-api"
+
+		}
+	},
+	"aws": {
+		"access_key_id": "",
+		"secret_access_key": "",
+		"region": ""
+	}
+}

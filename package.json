@@ -1,0 +1,46 @@
+{
+  "name": "shore",
+  "version": "0.0.1",
+  "description": "Node Backup",
+  "main": "index.js",
+  "scripts": {
+    "test": "environment=test mocha \"tests/**/*.js\" --reporter spec",
+    "test-acceptance": "environment=test mocha \"tests/acceptance/**/*.js\" --reporter spec",
+    "test-unit": "environment=test mocha \"tests/unit/**/*.js\" --reporter spec",
+    "test-watch": "environment=test mocha \"tests/**/*.js\" --reporter spec --watch",
+    "test-xunit": "environment=test mocha \"tests/**/*.js\" -R xunit-file"
+  },
+  "repository": "https://github.com/associatedemployers/shore",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "author": "Associated Employers",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.10.02",
+    "chalk": "^1.1.1",
+    "cron": "^1.0.9",
+    "email-templates": "^2.1.0",
+    "express": "^4.13.4",
+    "fs-extra": "^0.26.2",
+    "glob": "^7.0.0",
+    "handlebars": "^4.0.5",
+    "keygenerator": "^1.0.2",
+    "less": "^2.6.0",
+    "lodash": "^4.3.0",
+    "moment": "^2.10.6",
+    "nodemailer": "^2.1.0",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemailer-sendmail-transport": "^1.0.0",
+    "single-line-log": "^1.0.1",
+    "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.5",
+    "chai": "^3.4.0",
+    "chai-as-promised": "^5.1.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.3.3",
+    "xunit-file": "0.0.9"
+  }
+}
