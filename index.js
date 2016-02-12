@@ -1,12 +1,16 @@
-var    winston   = require('winston'),
+var optionsDirectory = process.env.environment === 'test' ? './tests/test-options.json' : './config/options.json';
+
+var winston   = require('winston'),
     Scheduler = require('./lib/scheduler'),
     task      = require('./tasks/task'),
-    options   = require('./config/options.json'),
+    options   = require(optionsDirectory),
     logLevel  = process.env.environment === 'development' || process.env.environment === 'dev' ? 'debug' : 'info';
+
 winston.level = logLevel;
+process.title = 'Shore';
 
 var runningTasks = [];
-process.title = 'Shore';
+
 options.backups.forEach(definition => {
   runningTasks.push(new Scheduler({
     name: task.name + ' ' + definition.name,
@@ -16,3 +20,5 @@ options.backups.forEach(definition => {
     pattern: definition.pattern
   }));
 });
+
+exports.runningTasks = runningTasks;

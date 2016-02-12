@@ -1,0 +1,9 @@
+{
+	"backups" : [
+    {
+			"name": "Mocha Test Backup",
+			"db": "test",
+			"pattern": "* * * * *"
+		}
+	]
+}
