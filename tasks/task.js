@@ -1,4 +1,4 @@
-var optionsDirectory = process.env.environment === 'test' ? './tests/test-options.json' : './config/options.json';
+var optionsDirectory = process.env.environment === 'test' ? '../tests/test-options.json' : '../config/options.json';
 
 var Zipped  = require('zip-zip-top'),
     options = require(optionsDirectory),
