@@ -1,8 +1,10 @@
-var Zipped = require('zip-zip-top'),
-    option = require('../config/options.json'),
-    moment = require('moment'),
-    exec   = require('child_process').exec,
-    fs     = require('fs-extra');
+var optionsDirectory = process.env.environment === 'test' ? './tests/test-options.json' : './config/options.json';
+
+var Zipped  = require('zip-zip-top'),
+    options = require(optionsDirectory),
+    moment  = require('moment'),
+    exec    = require('child_process').exec,
+    fs      = require('fs-extra');
 
 var zippy = new Zipped();
 
