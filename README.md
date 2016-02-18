@@ -2,7 +2,7 @@
 A minimal node backup server for mongoDB.  It takes your database, zips it,  and saves it locally or on Amazon Web Services.  
 
 ## Installation ##
-      $ git clone https://github.com/associatedemployers/shore.git
+    $ git clone https://github.com/associatedemployers/shore.git
     $ npm install
     $ node index.js
 
@@ -14,8 +14,8 @@ A minimal node backup server for mongoDB.  It takes your database, zips it,  and
 
 
 ## Contributors ##
--[James Collins](https://github.com/James1x0)  
--[J Scott Chapman](https://github.com/jscottchapman)
+[James Collins](https://github.com/James1x0)  
+[J Scott Chapman](https://github.com/jscottchapman)
 
 ## License ##
 MIT
