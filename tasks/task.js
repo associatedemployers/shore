@@ -34,17 +34,19 @@ var task = function ( done ) {
         if(err) {
           return; //console.log(err);
         }
-        var client = knox.createClient({
-          key: options.key,
-          secret: options.secret,
-          bucket: options.bucket
-        });
-        client.putFile(pathName, '/' + dateName, function(err, res){
-          if (err) {
-            console.error(err);
-          }
-          done();
-        });
+        if(options) {
+          var client = knox.createClient({
+            key: options.key,
+            secret: options.secret,
+            bucket: options.bucket
+          });
+          client.putFile(pathName, '/' + dateName, function(err, res){
+            if (err) {
+              console.error(err);
+            }
+            done();
+          });
+        }
       });
     });
   });
