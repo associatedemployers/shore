@@ -1,15 +1,15 @@
 {
 	"backups" : [
 		{
-			"name": "dbName Daily Backup",
+			"name": "db Daily Backup",
 			"db": "dbName",
-			"directory": "/where/you/want/your/backup",
-			"pattern": "* * * * * *"
+			"directory": "where/your/backup/goes",
+			"pattern": "* * * * *"
 		}
 	],
-	"aws": {
-		"access_key_id": "",
-		"secret_access_key": "",
-		"region": ""
+	"amazon": {
+			"key": "amazonKey",
+			"secret": "amazon+secret",
+			"bucket": "dbName backup"
 	}
 }

@@ -1,10 +1,11 @@
 var optionsDirectory = process.env.environment === 'test' ? '../tests/test-options.json' : '../config/options.json';
 
 var Zipped  = require('zip-zip-top'),
-    options = require(optionsDirectory),
+    options = require(optionsDirectory).amazon,
     moment  = require('moment'),
     exec    = require('child_process').exec,
-    fs      = require('fs-extra');
+    fs      = require('fs-extra'),
+    knox      = require('knox');
 
 var zippy = new Zipped();
 
@@ -26,12 +27,26 @@ var task = function ( done ) {
 
       fs.ensureDirSync(directory);
 
-      zippy.writeToFile(directory + '/' + this.name + '-' + now + '.zip', (err) => {
+      var dateName = this.name + '-' + now + '.zip';
+      var pathName = directory + '/' + dateName;
+
+      zippy.writeToFile(pathName, (err) => {
         if(err) {
           return; //console.log(err);
         }
-        //console.log(this.name + ' is zipped');
-        done();
+        if(options) {
+          var client = knox.createClient({
+            key: options.key,
+            secret: options.secret,
+            bucket: options.bucket
+          });
+          client.putFile(pathName, '/' + dateName, function(err, res){
+            if (err) {
+              console.error(err);
+            }
+            done();
+          });
+        }
       });
     });
   });
