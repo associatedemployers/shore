@@ -29,7 +29,6 @@
     "nodemailer": "^2.1.0",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "nodemailer-sendmail-transport": "^1.0.0",
-    "s3": "^4.4.0",
     "single-line-log": "^1.0.1",
     "winston": "^2.1.1",
     "zip-zip-top": "^0.1.0"
